@@ -1,4 +1,4 @@
-name: second-action
+name: Test & Deploy
 
 on:
   push:
@@ -9,13 +9,13 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Get code
+      - name: Get Code
         uses: actions/checkout@v7
       - name: Install Nodejs
         uses: actions/setup-node@v7
         with:
           node-version: 22
-      - name: Install dependencies
+      - name: Install depedencies
         run: npm ci
       - name: Run tests
         run: npm test
@@ -25,13 +25,13 @@ jobs:
     steps:
       - name: Get code
         uses: actions/checkout@v7
-      - name: Install Nodejs
+      - name: Install nodejs
         uses: actions/setup-node@v7
         with:
           node-version: 22
-      - name: Install Dependencies
+      - name: Install dependencies
         run: npm ci
-      - name: Build Project
+      - name: Build project
         run: npm run build
-      - name: Deploy
-        run: echo "Deploying code.."
+      - name: Deploy project
+        run: echo "Deploying project.."
