@@ -19,3 +19,18 @@ jobs:
         run: npm ci
       - name: Run tests
         run: npm test
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v7
+      - name: Install Nodejs
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      - name: Install Dependencies
+        run: npm ci
+      - name: Build Project
+        run: npm run build
+      - name: Deploy
+        run: echo "Deploying code.."
